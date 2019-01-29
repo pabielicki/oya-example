@@ -1,24 +1,47 @@
-# README
+# Oya usage example
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a sample Rails application to demononstrate Oya usage.
+We will init oya, import docker, circleci packages and generate config files fot them.
 
-Things you may want to cover:
+## Init
+Init creates Oyafile in project repository
 
-* Ruby version
+  $ oya init
+  
+## Packs
+Pack is a set of tasks.
+First we need to fetch package with `oya get` command.
 
-* System dependencies
+  $ oya get github.com/tooploox/oya-packs
+ 
+Than add Import to Oyafile
 
-* Configuration
+```
+Project: project
+Import:
+ docker: github.com/tooploox/oya-packs/docker
+ circleci: github.com/tooploox/oya-packs/circleci
+```
+ 
+## Pack tasks
+When packs are fetched and Imported in our project we can run tasks from packs.
+Docker and CircleCi implements generate task. Which copies sample configs.
 
-* Database creation
+  $ oya run docker.generate
+  $ oya run circleci.generate
 
-* Database initialization
+# Oyafile
+Example:
+```
+Project: project
+Import:
+ docker: github.com/bart84ek/oya_packs/docker
+Values:
+  msg: Hello oya!
+test: |
+  echo $msg
+  echo "Done"
+```
 
-* How to run the test suite
+## Tasks
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
