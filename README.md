@@ -23,13 +23,13 @@ Init creates Oyafile in project repository
   
 ## Packs
 Pack is a set of tasks.
-First we need to fetch package with `oya get` command.
+First we need to fetch package with `oya get` command. All packages will be stored in `.oya/vendor` directory
 
     $ oya get github.com/tooploox/oya-packs
  
 Than we can import our pack.
 
-    $ oya import github.com/tooploox/oya-packs
+    $ oya import github.com/tooploox/oya-packs/docker
     
 Import adds Import statment in Oyafile. Pack is imported with alias (default last word from url).
 
@@ -43,7 +43,11 @@ Import:
 When packs are fetched and Imported in our project we can run tasks from packs.
 Docker and CircleCi implements generate task. Which copies sample configs.
 
-  $ oya run docker.generate
+    $ oya run docker.generate
+    $ oya run docker.build
+    $ oya run docker.run
+    $ oya run docker.stop
+    
 
 # Oyafile
 
@@ -60,5 +64,4 @@ test: |
   echo $msg
   echo "Done"
 ```
-
 
