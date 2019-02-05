@@ -1,0 +1,12 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/oya-project
+    docker:
+      - image: cirleci/ruby:2.5
+        environment:
+          RAILS_ENV: test
+  steps:
+    - checkout
+
+    - run: bundle exec rake
