@@ -1,0 +1,8 @@
+Project: project
+Import:
+  circleci: github.com/tooploox/oya-packs/circleci
+  docker: github.com/tooploox/oya-packs/docker
+
+
+onPush: |
+  rake test
