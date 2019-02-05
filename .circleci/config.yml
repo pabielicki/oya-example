@@ -42,7 +42,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: ~/repo
+          at: ~/oya-project
       - run: bundle --path vendor/bundle
       - run: ./oya run onPush
 
@@ -52,7 +52,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: ~/repo
+          at: ~/oya-project
       - run: bundle --path vendor/bundle
       - run: ./oya run onMergeToMaster
 
