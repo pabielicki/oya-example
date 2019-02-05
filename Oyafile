@@ -5,4 +5,4 @@ Import:
 
 
 onPush: |
-  rake test
+  bundle exec rake
