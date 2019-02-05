@@ -33,7 +33,6 @@ jobs:
           at: ~/oya-project
       - run: curl -O https://s3.eu-central-1.amazonaws.com/oyabinary/oya
       - run: chmod +x oya
-      - run: ls -a .oya
       - persist_to_workspace:
           root: .
           paths:
@@ -47,6 +46,7 @@ jobs:
       - attach_workspace:
           at: ~/oya-project
       - run: bundle --path vendor/bundle
+      - run: ls -a
       - run: ./oya run onPush
 
 
