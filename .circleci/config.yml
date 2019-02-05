@@ -33,9 +33,12 @@ jobs:
           at: ~/oya-project
       - run: curl -O https://s3.eu-central-1.amazonaws.com/oyabinary/oya
       - run: chmod +x oya
+      - run: ./oya get github.com/tooploox/oya-packs
       - persist_to_workspace:
           root: .
-          paths: oya
+          paths:
+            - oya
+            - .oya
 
   rake_test:
     <<: *defaults
